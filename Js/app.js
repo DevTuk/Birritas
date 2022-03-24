@@ -12,8 +12,8 @@ function compraste(){
         buttons: true,
         
       })
-      .then((willDelete) => {
-        if (willDelete) {
+      .then((seArrepiente) => {
+        if (seArrepiente) {
           swal({
              title: "Muchas gracias por tu compra!", 
              text:"Nos pondemos en contacto a la brevedad",
