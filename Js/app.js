@@ -1,5 +1,20 @@
 let divEstilos = document.getElementById("divEstilos");
 let contadorItems = document.getElementsByClassName("contadorItems");
+
+
+
+function compraste(){
+    
+    swal({
+       title: "Muchas Gracias!",
+       text: "Ya recibimos tu pedido! A la brevedad nos pondremos en contacto!",
+       icon: "success",
+       button: "OK",
+     });
+    
+   
+};
+
  
 async function obtenerProductos() {
     const response = await fetch('js/api.json')
@@ -36,6 +51,8 @@ obtenerProductos().then(productos => {
             //borramos clase para mostrar precio en responsive     
             let verBtn= document.getElementById("contadorNav")
             verBtn.classList.remove('contadorNavDisplay')
+            let verbtnComprar = document.getElementById("btnComprar");
+            verbtnComprar.classList.remove('btnComprarDisplay')
             Toastify({
                 text: "Producto Agregado al Carrito",
                 className: "info",
@@ -48,6 +65,7 @@ obtenerProductos().then(productos => {
             }).showToast();
         })
     );
+    
     const clickButton = document.querySelectorAll(".button");
     const tbody = document.querySelector(".tbody");
     let carrito = [];
@@ -121,7 +139,9 @@ obtenerProductos().then(productos => {
         carritoTotal();
         carritoNavTotal();
     }
-    //funcion para sumar al total
+    //notificacion 
+
+     //funcion para sumar al total
     function carritoTotal() {
         let total = 0;
         const itemCartTotal = document.querySelector(".itemCartTotal");
@@ -147,6 +167,11 @@ obtenerProductos().then(productos => {
             if (totalNavCarrito == 0) {
                 let verBtn= document.getElementById("contadorNav")
                 verBtn.classList.add('contadorNavDisplay')
+                let verbtnComprar = document.getElementById("btnComprar");
+                verbtnComprar.classList.add('btnComprarDisplay')
+
+               
+
             }
         addLocalStorage();
     }
@@ -185,10 +210,7 @@ obtenerProductos().then(productos => {
             }
         });
     }
-    const aumentarItemsCarrito = () => {
-        let total = carrito.reduce((acc,iter)=> acc+iter.cantidad,Number(0))
-        document.querySelector('.contadorItems').textContent = total;
-    }
+  
     //creamos localstorage para el carrito de compras
     //guardamos string de carrito en local storage y lo guardamos en funcion de carritoTotal
     function addLocalStorage() {

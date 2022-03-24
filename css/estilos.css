@@ -35,6 +35,9 @@ nav {
 .contadorNavDisplay{
   display:none;  
 }
+.btnComprarDisplay{
+  display:none;
+}
 .contadorNav > p {
   margin-top: 6px;
   vertical-align: middle;
