@@ -6,13 +6,25 @@ let contadorItems = document.getElementsByClassName("contadorItems");
 function compraste(){
     
     swal({
-       title: "Muchas Gracias!",
-       text: "Ya recibimos tu pedido! A la brevedad nos pondremos en contacto!",
-       icon: "success",
-       button: "OK",
-     });
-    
-   
+        title: "Desea finalizar la compra?",
+        text: "Si continua ya no podra modificar el carrito de compras!",
+        icon: "warning",
+        buttons: true,
+        
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal({
+             title: "Muchas gracias por tu compra!", 
+             text:"Nos pondemos en contacto a la brevedad",
+             icon: "success",
+          });
+        } else {
+          swal({
+            text: "Podes seguir agregando productos al carrito!",
+         });
+        }
+      });
 };
 
  
