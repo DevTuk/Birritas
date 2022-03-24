@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none !important;
+}
+body {
+  background-image: url(../imagenes/madera.jpg)!important;
+  color: White;
+  font-weight: bold;
+  background-size: hidden;
+}
+header {
+  
+  z-index: 100;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  
+}
+nav {
+  background-color: #313131!important;
+}
+
+.contadorNav{
+  background-color: #6E4417;
+  border: 2px solid #383737;
+  border-radius: 40%;
+  width: 50px;
+  height: 30px;
+  margin: 20px;
+  color: White;
+}
+.contadorNavDisplay{
+  display:none;  
+}
+.contadorNav > p {
+  margin-top: 6px;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size:14px;
+ }
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #6E4417 !important;
+}
+a {
+  color: rgb(255, 255, 255) !important;
+  text-align: center;
+}
+.lupuloCarrito{
+    width: 60px;
+    
+  }
+.carritoImg{
+  margin: 2px;
+  width: 25px;
+}
+.logoHeader {
+ width: 80px;
+ vertical-align:middle;
+}
+.banner {
+  margin-top: -50px;
+  border-radius: 50px;
+  padding: 20px;  
+}
+.verticalBanner {
+  border-radius: 50px;
+  padding: 20px; 
+  margin-bottom: 50px;
+  }
+.carritoCompra {
+  color: rgb(5, 5, 5) !important;
+  background-color: rgb(255, 255, 255, 0);
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 255, 255, 0.25);
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.titulos {
+  text-align: center;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.panelEstilos{
+  align-items: center;
+  justify-content: center;
+}
+.panelEstilos,
+.panelHome,
+.panelCarrito {
+  margin-top: 20px;
+  
+}
+.estilosCerveza {
+  margin-left: 0!important;
+  margin-right: 0!important;
+  width: 100%;
+  margin-bottom: 100px;
+}
+.row{
+  margin-left: 0!important;
+}
+
+.losEstilos {
+  background-color: #fdc49180 !important;
+  border-radius: 10px !important;
+  border-color: #313131 !important;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+.losEstilos img {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  opacity: 100%;
+  object-fit: cover;
+}
+
+#formConsulta {
+  margin: 10px;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.35);
+  padding: 5vh;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.btnMostrar {
+  align-items: center;
+}
+.gris {
+  background-color: #333;
+}
+
+footer {
+  display:flex;
+  justify-content:space-around;
+  background-color: #313131!important;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Height of the footer */
+  
+}
+
+/* carrito de compras */
+td,
+tr {
+  vertical-align: middle;
+}
+
+.carrito {
+  min-height: 10vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+}
+.totalCarrito {
+  
+  height: 50px;
+  font-weight: bold;
+}
+.totalCarrito > div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  vertical-align: center;
+}
+
+.tableImgProducto > img {
+  width: 3rem;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.tableCantidad > input {
+  width: 50px;
+  padding: 3px;
+  outline: 0;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 10px;
+  border-collapse: none;
+}
+
+/*boton agegar carrito*/
+.cta {
+  margin-bottom: 20px;
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 100%;
+}
+
+.cta::before {
+  content: "";
+  width: 0;
+  height: 3em;
+  border: 2px solid white;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #00c9ad 0%, #00c9ad 98%);
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.cta:hover::before {
+  width: 9em;
+}
+
