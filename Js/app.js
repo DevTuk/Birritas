@@ -1,9 +1,12 @@
 let divEstilos = document.getElementById("divEstilos");
+let contadorItems = document.getElementsByClassName("contadorItems");
+
 async function obtenerProductos() {
     const response = await fetch('js/api.json')
     return await response.json()
 }
-btenerProductos().then(productos => {
+
+obtenerProductos().then(productos => {
     productos.forEach((producto) => {
         divEstilos.innerHTML += `
         <div class="row col-12 sm-6 col-sm-3 ">          
@@ -26,6 +29,7 @@ btenerProductos().then(productos => {
         </div>
         `;
     })
+
     const btnAgregar = document.querySelectorAll(".btn-agregar");
     btnAgregar.forEach((e) =>
         e.addEventListener("click", (e) => {

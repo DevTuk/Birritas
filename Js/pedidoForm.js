@@ -17,7 +17,8 @@ formConsulta.addEventListener('submit', (e) => {
     //utilizamos otro método para capturar formulario y guardarlo en el localstorage
     let datForm = new FormData(e.target)
     const consulta = new ConsultaForm(datForm.get('nombre'), datForm.get('apellido'), datForm.get('email'), datForm.get('textArea'));
-    
+    arrayConsulta.push(consulta);
+    formConsulta.reset();
 
     swal({
         title: "Gracias por escribirnos!",
@@ -25,8 +26,7 @@ formConsulta.addEventListener('submit', (e) => {
         icon: "success",
     });
 
-    arrayConsulta.push(consulta);
-    formConsulta.reset();
+   
 });
 
 
