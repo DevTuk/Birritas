@@ -1,6 +1,7 @@
 let divEstilos = document.getElementById("divEstilos");
 let contadorItems = document.getElementsByClassName("contadorItems");
 
+
 async function obtenerProductos() {
     const response = await fetch('js/api.json')
     return await response.json()
@@ -249,3 +250,4 @@ obtenerProductos().then(productos => {
     };
     //fin 
 });
+
