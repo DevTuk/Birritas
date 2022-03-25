@@ -1,33 +1,6 @@
 let divEstilos = document.getElementById("divEstilos");
 let contadorItems = document.getElementsByClassName("contadorItems");
 
-
-
-function compraste(){
-    
-    swal({
-        title: "Desea finalizar la compra?",
-        text: "Si continua ya no podra modificar el carrito de compras!",
-        icon: "warning",
-        buttons: true,
-        
-      })
-      .then((seArrepiente) => {
-        if (seArrepiente) {
-          swal({
-             title: "Muchas gracias por tu compra!", 
-             text:"Nos pondemos en contacto a la brevedad",
-             icon: "success",
-          });
-        } else {
-          swal({
-            text: "Podes seguir agregando productos al carrito!",
-         });
-        }
-      });
-};
-
- 
 async function obtenerProductos() {
     const response = await fetch('js/api.json')
     return await response.json()
@@ -61,10 +34,13 @@ obtenerProductos().then(productos => {
     btnAgregar.forEach((e) =>
         e.addEventListener("click", (e) => {
             //borramos clase para mostrar precio en responsive     
-            let verBtn= document.getElementById("contadorNav")
+            let verBtn = document.getElementById("contadorNav")
             verBtn.classList.remove('contadorNavDisplay')
             let verbtnComprar = document.getElementById("btnComprar");
-            verbtnComprar.classList.remove('btnComprarDisplay')
+            verbtnComprar.classList.remove('btnComprarDisplay');
+            let verbtnVaciar = document.getElementById("btnVaciar");
+            verbtnVaciar.classList.remove('btnVaciarDisplay');
+            
             Toastify({
                 text: "Producto Agregado al Carrito",
                 className: "info",
@@ -77,7 +53,7 @@ obtenerProductos().then(productos => {
             }).showToast();
         })
     );
-    
+
     const clickButton = document.querySelectorAll(".button");
     const tbody = document.querySelector(".tbody");
     let carrito = [];
@@ -139,6 +115,7 @@ obtenerProductos().then(productos => {
                 <input type="number" min="1" value=${item.cantidad} class="inputElemento">
                 <button class="delete btn btn-danger">X</button>
             </td>
+            
         `;
             tr.innerHTML = Content;
             tbody.append(tr);
@@ -151,9 +128,42 @@ obtenerProductos().then(productos => {
         carritoTotal();
         carritoNavTotal();
     }
+    //notificacion de compra realizada 
+
+    compraste = () => {
+        swal({
+            title: "Desea finalizar la compra?",
+            text: "Si continua ya no podra modificar el carrito de compras!",
+            icon: "warning",
+            buttons: true,
+        })
+            .then((confirmaCompra) => {
+                if (confirmaCompra) {
+                    swal({
+                        title: "Muchas gracias por tu compra!",
+                        text: "Nos pondemos en contacto a la brevedad",
+                        icon: "success",
+                    });
+                    vaciarCarrito()
+                    
+                } else {
+                    swal({
+                        text: "Podes seguir agregando productos al carrito!",
+                    });
+                }
+            });
+    };
+    //vaciar carrito
+    const botonVaciar = document.querySelector('#btnVaciar');
+    botonVaciar.addEventListener('click', vaciarCarrito);
+
+    function vaciarCarrito() {
+        carrito = [];
+        renderCarrito();
+    }
     //notificacion 
 
-     //funcion para sumar al total
+    //funcion para sumar al total
     function carritoTotal() {
         let total = 0;
         const itemCartTotal = document.querySelector(".itemCartTotal");
@@ -168,23 +178,23 @@ obtenerProductos().then(productos => {
     function carritoNavTotal() {
         let totalNavCarrito = 0;
         const itemNavCartTotal = document.querySelector(".itemNavCartTotal");
-        const PrecioEnContadorItems=document.querySelector('.contadorItems');
+        const PrecioEnContadorItems = document.querySelector('.contadorItems');
         carrito.forEach((item) => {
             const precio = Number(item.precio.replace("$", ""));
             totalNavCarrito = totalNavCarrito + precio * item.cantidad;
         });
         itemNavCartTotal.innerHTML = ` $${totalNavCarrito}`;
-        PrecioEnContadorItems.innerHTML =`$${totalNavCarrito}`;
-            //agregamos la clase para ocultar el display en responsive
-            if (totalNavCarrito == 0) {
-                let verBtn= document.getElementById("contadorNav")
-                verBtn.classList.add('contadorNavDisplay')
-                let verbtnComprar = document.getElementById("btnComprar");
-                verbtnComprar.classList.add('btnComprarDisplay')
+        PrecioEnContadorItems.innerHTML = `$${totalNavCarrito}`;
+        //agregamos la clase para ocultar el display en responsive
+        if (totalNavCarrito == 0) {
+            let verBtn = document.getElementById("contadorNav")
+            verBtn.classList.add('contadorNavDisplay')
+            let verbtnComprar = document.getElementById("btnComprar");
+            verbtnComprar.classList.add('btnComprarDisplay')
+            let verbtnVaciar = document.getElementById("btnVaciar");
+            verbtnVaciar.classList.add('btnVaciarDisplay')
 
-               
-
-            }
+        }
         addLocalStorage();
     }
     //funcion para borrar items del carrito
@@ -206,6 +216,7 @@ obtenerProductos().then(productos => {
                 color: "white",
             },
         }).showToast();
+
     }
     //modificamos la suma desde el input y utilizo un operador ternario
     function sumarCantidad(e) {
@@ -222,7 +233,7 @@ obtenerProductos().then(productos => {
             }
         });
     }
-  
+
     //creamos localstorage para el carrito de compras
     //guardamos string de carrito en local storage y lo guardamos en funcion de carritoTotal
     function addLocalStorage() {
@@ -236,5 +247,5 @@ obtenerProductos().then(productos => {
             renderCarrito();
         }
     };
-//fin 
+    //fin 
 });

@@ -32,12 +32,17 @@ nav {
   margin: 20px;
   color: White;
 }
+/*display de botones */
 .contadorNavDisplay{
   display:none;  
 }
 .btnComprarDisplay{
   display:none;
 }
+.btnVaciarDisplay {
+  display:none;
+}
+
 .contadorNav > p {
   margin-top: 6px;
   vertical-align: middle;
@@ -199,8 +204,43 @@ tr {
 }
 
 /*boton agegar carrito*/
+.ctaDanger {
+  margin-bottom: 30px;
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  z-index: 1;
+  opacity: 100%;
+  color:white;
+  background-image: linear-gradient(to right, #DC3545 0%, #DC3545 98%);
+}
+
+.ctaDanger::before {
+  content: "";
+  width: 0;
+  height: 3em;
+  border: 2px solid white;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.ctaDanger:hover::before {
+  width: 9em;
+}
 .cta {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   width: 9em;
   height: 3em;
   border-radius: 30em;
@@ -211,6 +251,7 @@ tr {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  padding: 10px;
   opacity: 100%;
 }
 
