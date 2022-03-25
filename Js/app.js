@@ -141,7 +141,7 @@ obtenerProductos().then(productos => {
                 if (confirmaCompra) {
                     swal({
                         title: "Muchas gracias por tu compra!",
-                        text: "Nos pondemos en contacto a la brevedad",
+                        text: "Nos pondremos en contacto a la brevedad",
                         icon: "success",
                     });
                     vaciarCarrito()
