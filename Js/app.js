@@ -1,13 +1,9 @@
 let divEstilos = document.getElementById("divEstilos");
-let contadorItems = document.getElementsByClassName("contadorItems");
-
-
 async function obtenerProductos() {
     const response = await fetch('js/api.json')
     return await response.json()
 }
-
-obtenerProductos().then(productos => {
+btenerProductos().then(productos => {
     productos.forEach((producto) => {
         divEstilos.innerHTML += `
         <div class="row col-12 sm-6 col-sm-3 ">          
@@ -27,7 +23,6 @@ obtenerProductos().then(productos => {
                         <button id="agregarPedido" class="btn-agregar button cta">Comprar</a>
                 </div>
             </div>
-            
         </div>
         `;
     })
@@ -41,7 +36,7 @@ obtenerProductos().then(productos => {
             verbtnComprar.classList.remove('btnComprarDisplay');
             let verbtnVaciar = document.getElementById("btnVaciar");
             verbtnVaciar.classList.remove('btnVaciarDisplay');
-            
+
             Toastify({
                 text: "Producto Agregado al Carrito",
                 className: "info",
@@ -54,7 +49,6 @@ obtenerProductos().then(productos => {
             }).showToast();
         })
     );
-
     const clickButton = document.querySelectorAll(".button");
     const tbody = document.querySelector(".tbody");
     let carrito = [];
@@ -146,7 +140,7 @@ obtenerProductos().then(productos => {
                         icon: "success",
                     });
                     vaciarCarrito()
-                    
+
                 } else {
                     swal({
                         text: "Podes seguir agregando productos al carrito!",
@@ -162,8 +156,6 @@ obtenerProductos().then(productos => {
         carrito = [];
         renderCarrito();
     }
-    //notificacion 
-
     //funcion para sumar al total
     function carritoTotal() {
         let total = 0;
@@ -194,7 +186,6 @@ obtenerProductos().then(productos => {
             verbtnComprar.classList.add('btnComprarDisplay')
             let verbtnVaciar = document.getElementById("btnVaciar");
             verbtnVaciar.classList.add('btnVaciarDisplay')
-
         }
         addLocalStorage();
     }
@@ -217,7 +208,6 @@ obtenerProductos().then(productos => {
                 color: "white",
             },
         }).showToast();
-
     }
     //modificamos la suma desde el input y utilizo un operador ternario
     function sumarCantidad(e) {
@@ -234,7 +224,6 @@ obtenerProductos().then(productos => {
             }
         });
     }
-
     //creamos localstorage para el carrito de compras
     //guardamos string de carrito en local storage y lo guardamos en funcion de carritoTotal
     function addLocalStorage() {
@@ -248,6 +237,4 @@ obtenerProductos().then(productos => {
             renderCarrito();
         }
     };
-    //fin 
 });
-
