@@ -23,7 +23,7 @@ obtenerProductos().then(productos => {
                     <p class="card-title"> Precio:  <b class="itemPrecio">$ ${producto.precio}</b></p>
                 </div>
                 <div class="card-body d-grid gap-2">
-                        <button id="agregarPedido" class="btn-agregar button cta">Añadir al carrito</a>
+                        <button id="agregarPedido" class="btn-agregar button cta">Comprar</a>
                 </div>
             </div>
             

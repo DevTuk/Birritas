@@ -206,8 +206,8 @@ tr {
 /*boton agegar carrito*/
 .ctaDanger {
   margin-bottom: 30px;
-  width: 9em;
-  height: 3em;
+  width: 6em;
+  height: 2em;
   border-radius: 30em;
   font-weight: bold;
   font-size: 16px;
@@ -215,7 +215,6 @@ tr {
   border: none;
   position: relative;
   overflow: hidden;
-  padding: 10px;
   z-index: 1;
   opacity: 100%;
   color:white;
@@ -225,7 +224,7 @@ tr {
 .ctaDanger::before {
   content: "";
   width: 0;
-  height: 3em;
+  height: 2em;
   border: 2px solid white;
   border-radius: 30em;
   position: absolute;
@@ -237,12 +236,12 @@ tr {
 }
 
 .ctaDanger:hover::before {
-  width: 9em;
+  width: 6em;
 }
 .cta {
   margin-bottom: 30px;
-  width: 9em;
-  height: 3em;
+  width: 6em;
+  height: 2em;
   border-radius: 30em;
   font-weight: bold;
   font-size: 16px;
@@ -251,14 +250,13 @@ tr {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  padding: 10px;
   opacity: 100%;
 }
 
 .cta::before {
   content: "";
   width: 0;
-  height: 3em;
+  height: 2em;
   border: 2px solid white;
   border-radius: 30em;
   position: absolute;
@@ -271,6 +269,6 @@ tr {
 }
 
 .cta:hover::before {
-  width: 9em;
+  width: 6em;
 }
 
